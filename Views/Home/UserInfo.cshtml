@@ -1,0 +1,11 @@
+﻿@{
+    ViewData["Title"] = "About";
+}
+<h5><a href="/home">Home</a> || <a href="/logout">logout</a></h5>
+<hr>
+<h4>Name: @ViewBag.user.first_name @ViewBag.user.last_name</h4>
+<h4>Alias: @ViewBag.user.first_name</h4>
+<h4>Email: @ViewBag.user.email</h4>
+<hr>
+<h4>Total number of posts: practice my sql queries or use EFCORE....@ViewBag.num_posts</h4>
+<h4>Total number of likes: @ViewBag.user.num_likes</h4>

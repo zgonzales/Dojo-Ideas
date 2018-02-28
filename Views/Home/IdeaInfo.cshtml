@@ -1,0 +1,17 @@
+<h5><a href="/home">Home</a> || <a href="/logout">logout</a></h5>
+<hr>
+<h3><a href="/users/@ViewBag.idea.poster_id">@ViewBag.idea.poster</a> says: @ViewBag.idea.description</h3>
+<hr>
+<h3>People who liked this post</h3>
+<table>
+    <tr>
+        <th>Alias</th>
+        <th>Name</th>
+    </tr>
+    @foreach(var user in @ViewBag.likedby){
+        <tr>
+        <td><a href="/users/@user.user_id">@user.first_name</a></td>
+            <td>@user.first_name @user.last_name</td>
+        </tr>
+    }
+</table>

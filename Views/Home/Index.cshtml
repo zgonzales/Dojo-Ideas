@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<h1>Welcome to the Dojo Idea Page</h1>
+@model belt2.Models.User
+<h2>Login</h2>
+<form action="logattempt" method="post">
+    email: <input type=text name="email">
+    password:<input type=password name="pass"><br>
+    <input type="submit"/>
+</form>
+
+<div>@ViewBag.errors</div>
+<div asp-validation-summary="All"></div>
+<h2>Register</h2>
+<form asp-controller="User" asp-action="Register" method="post">
+    <label asp-for="first_name">First Name</label>
+    <input asp-for="first_name"/><br>
+    <label asp-for="last_name">Last Name</label>
+    <input asp-for="last_name"/><br>
+    <label asp-for="email">Email</label>
+    <input asp-for="email"/><br>
+    <label asp-for="password">Password</label>
+    <input asp-for="password"/><br>
+    <label asp-for="confirmPassword">Confirm password</label>
+    <input type="password" asp-for="confirmPassword"/><br>
+    <input type="submit"/>
+</form>
+<hr>

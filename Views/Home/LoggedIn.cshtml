@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "ideas";
+}
+
+<h3>Hi @ViewBag.sessionuser ! <a href="/logout">logout</a></h3>
+<hr>
+
+<form action="NewIdea" method="Post">
+    <input type="hidden" name="poster" value="@ViewBag.sessionuser">
+    <textarea name="description" rows="2" cols="700">Post something witty here...</textarea>
+    <input type="submit" value="Idea!">
+</form>
+
+@foreach(var idea in @ViewBag.ideas){
+    <h4><a href="/users/@idea.poster_id">@idea.poster</a> says: @idea.description</h4>
+    @if(@idea.poster == @ViewBag.sessionuser){
+        <h4><a href="/idea/@idea.id/delete">Delete</a></h4>
+    }
+    @if(@idea.likers.Contains(@ViewBag.sessionuser) == false){
+        <h4><a href="/idea/@idea.id/like/@ViewBag.sessionid">like</a></h4>
+    }
+    @if(@idea.likers.Contains(@ViewBag.sessionuser)){
+        <h4><a href ="/idea/@idea.id/unlike/@ViewBag.sessionid">unlike</a></h4>
+    }
+    <h4><a href="/idea/@idea.id">@idea.num_likes people</a> like this</h4>
+    <hr>
+}
